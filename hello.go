@@ -4,29 +4,15 @@ import (
 	"fmt"
 )
 
-func swap(str1 string, str2 string) (string, string) {
-	return str2, str1
-}
+func sumDefer(x, y int) int {
+	defer fmt.Printf("Added %d and %d\n", x, y)
 
-func greeting(name string) string {
-	return "hello" + name
-}
+	fmt.Printf("some stuff here ...\n")
 
-func double(x int, y int) (a, b int) {
-	a = x * 2
-	b = y * 2
-	return
+	return x + y
 }
 
 func main() {
-	i := 25
-
-	switch {
-	case i < 18:
-		fmt.Printf("Children")
-	case i < 50:
-		fmt.Printf("Adult")
-	default:
-		fmt.Printf("Old person")
-	}
+	var sum = sumDefer(2, 4)
+	fmt.Printf("Sum = %d\n", sum)
 }
