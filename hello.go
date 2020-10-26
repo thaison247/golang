@@ -3,7 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	var str string = "Hello world"
-	var year int = 2020
-	fmt.Println(str, year)
+	// default type: rune (int32)
+	var myChar = 'c'
+	fmt.Printf("Type of myChar: %T\n", myChar)
+
+	//
+	var myByteChar byte = 'a'
+	var myRuneChar rune = 'a'
+	fmt.Printf("%c = %d, %c = %U\n", myByteChar, myByteChar, myRuneChar, myRuneChar)
+
 }
