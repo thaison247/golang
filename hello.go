@@ -1,15 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+func swap(str1 string, str2 string) (string, string) {
+	return str2, str1
+}
+
+func greeting(name string) string {
+	return "hello" + name
+}
+
+func double(x int, y int) (a, b int) {
+	a = x * 2
+	b = y * 2
+	return
+}
 
 func main() {
-	// default type: rune (int32)
-	var myChar = 'c'
-	fmt.Printf("Type of myChar: %T\n", myChar)
+	i := 25
 
-	//
-	var myByteChar byte = 'a'
-	var myRuneChar rune = 'a'
-	fmt.Printf("%c = %d, %c = %U\n", myByteChar, myByteChar, myRuneChar, myRuneChar)
-
+	switch {
+	case i < 18:
+		fmt.Printf("Children")
+	case i < 50:
+		fmt.Printf("Adult")
+	default:
+		fmt.Printf("Old person")
+	}
 }
