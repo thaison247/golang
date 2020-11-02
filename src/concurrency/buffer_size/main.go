@@ -9,17 +9,31 @@ func squares(c chan int) {
 	}
 }
 
+func sender(c chan int) {
+	c <- 1
+	c <- 2
+	c <- 3
+	c <- 4
+	c <- 5
+	close(c)
+}
+
 func main() {
 	fmt.Println("Started")
 
 	c := make(chan int, 3)
 
-	go squares(c)
+	go sender(c)
 
-	c <- 1
-	c <- 2
-	c <- 3
-	c <- 4 // buffer size overflow: current goroutine is blocked here
+	for v := range c {
+
+		val := v
+
+		length := len(c)
+
+		fmt.Printf("Channel c's length after read value %d is %d\n", val, length)
+	}
+
 	// c <- 5
 
 	fmt.Println("Ended")
