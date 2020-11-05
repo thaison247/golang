@@ -20,18 +20,18 @@ func main() {
 	// create channels
 	chan1 := make(chan string)
 	chan2 := make(chan string)
-	chan3 := make(chan string, 2)
-	chan4 := make(chan string, 2)
+	// chan3 := make(chan string, 2)
+	// chan4 := make(chan string, 2)
 
 	// run goroutines
-	go service1(chan1)
-	go service2(chan2)
+	// go service1(chan1)
+	// go service2(chan2)
 
 	// send data to chan3 & chan4
-	chan3 <- "Hello"
-	chan3 <- "Konichiwa"
-	chan4 <- "Xin Chao"
-	chan4 <- "Bonjour"
+	// chan3 <- "Hello"
+	// chan3 <- "Konichiwa"
+	// chan4 <- "Xin Chao"
+	// chan4 <- "Bonjour"
 
 	time.Sleep(time.Second)
 
