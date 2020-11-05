@@ -6,12 +6,12 @@ import (
 )
 
 func service1(c chan string) {
-	time.Sleep(4 * time.Second)
+	// time.Sleep(4 * time.Second)
 	c <- "Service 1 channel content"
 }
 
 func service2(c chan string) {
-	time.Sleep(3 * time.Second)
+	// time.Sleep(3 * time.Second)
 	c <- "Service 2 channel content"
 }
 
@@ -33,15 +33,19 @@ func main() {
 	chan4 <- "Xin Chao"
 	chan4 <- "Bonjour"
 
+	time.Sleep(time.Second)
+
 	select {
 	case res := <-chan1: // blocking case
 		fmt.Println("Result in first case: ", res)
 	case res := <-chan2: // blocking case
 		fmt.Println("Result in sencond case: ", res)
-	case res := <-chan3: // unblocking case
-		fmt.Println("Result in third case: ", res)
-	case res := <-chan4: // unblocking case
-		fmt.Println("Result in fouth case: ", res)
+	// case res := <-chan3: // unblocking case
+	// 	fmt.Println("Result in third case: ", res)
+	// case res := <-chan4: // unblocking case
+	// 	fmt.Println("Result in fouth case: ", res)
+	default:
+		fmt.Println("No result received")
 	}
 
 	fmt.Println("Main() ended")
